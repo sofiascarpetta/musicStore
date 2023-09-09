@@ -13,26 +13,24 @@ const NavBar = () => {
     <>
     <div>
       <Flex>
-        <Box p='4' bg=''>
-          <h3>Lana Del Rey</h3>
+        <Box p='4' bg='#d1d1d1'>
+          <h3>MusicLegend</h3>
         </Box>
-        <Spacer />
-        <Box p='4' bg=''>
+        <Spacer bg='#d1d1d1' />
+        <Box p='4' bg='#d1d1d1'>
         <Menu>
             <MenuButton>
             Discos
             </MenuButton>
-            <MenuList>
-              <MenuItem>Born to Die</MenuItem>
-              <MenuItem>Ultraviolence</MenuItem>
-              <MenuItem>Honeymoon</MenuItem>
-              <MenuItem>Lust for life</MenuItem>
-              <MenuItem>Blue Banisters</MenuItem>
+            <MenuList >
+              <MenuItem color='#96305A'>Lana Del Rey</MenuItem>
+              <MenuItem color='#96305A'>Arctic Monkeys</MenuItem>
+              <MenuItem color='#96305A'>Radiohead</MenuItem>
             </MenuList>
           </Menu>
         </Box>
-        <Spacer />
-        <Box p='4'>
+        <Spacer bg='#d1d1d1' />
+        <Box p='4' bg='#d1d1d1'>
         <CartWidget/>
         </Box>
       </Flex>
