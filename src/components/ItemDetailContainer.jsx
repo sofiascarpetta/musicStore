@@ -1,34 +1,44 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import ItemDetail from './ItemDetail';
+import { useParams } from 'react-router-dom';
 
 const ItemDetailContainer = () => {
- // valores de la api //
- const getProducts = async () => {
-  const response = await fetch ("https://fakestoreapi.com/products");
-  const data = await response.json()
-  
-  return data
-}
+  const { productId } = useParams(null);
+  const [products, setProducts] = useState([]);
+  const [product, setProduct] = useState({});
 
-const [product, setProduct] = useState ([]);
-
-// PROMESA PARA MANDAR A PRODUCT LO DE LA API //
-useEffect(() => {
-  getProducts().then((product) => setProduct(product))
-}, [])
-
-return (
-  <>
-  {
-    product.map((p)=>{
-      return(
-        <ItemDetail product={p}/>
-      )
-    })
+  const getProducts = async () => {
+    const response = await fetch ("https://fakestoreapi.com/products");
+    const data = await response.json()
+    
+    return data
   }
-  </>
- )
+
+  const findProductById = (products, id) => {
+    return products.find((product) => product.id == id);
+  }
+
+  useEffect(() => {
+    getProducts().then((products) => setProducts(products))
+  }, []);
+
+  useEffect(() => {
+    if(products.length > 0 && productId) {
+      const productFinded = findProductById(products, productId);
+      setProduct(productFinded);
+    }
+    
+  }, [products, productId]);  
+
+  return (
+    <>
+    {
+      product &&
+      <ItemDetail product={product}/>
+    }
+    </>
+  )
 }
 
 // const getProductos = new Promise((resolve, reject) => {

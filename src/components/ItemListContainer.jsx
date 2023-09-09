@@ -1,26 +1,42 @@
 import React from 'react'
 import {useEffect, useState} from 'react'
 import ItemList from './ItemList'
+import { useParams } from 'react-router-dom';
 
 const ItemListContainer = () => {
-// valores de la api //
-    const getProducts = async () => {
-      const response = await fetch ("https://fakestoreapi.com/products");
-      const data = await response.json()
-      
-      return data
+  const [products, setProducts] = useState ([]);
+  const { categoryId } = useParams();
+  // valores de la api //
+  const getProducts = async () => {
+    const response = await fetch ("https://fakestoreapi.com/products");
+    const data = await response.json()
+    
+    return data
+  }
+
+  const productosFiltrados = (category) => {
+    if(products.length > 0) {
+      return products.filter((product) => product.category === category);
     }
+  }
 
-    const [product, setProduct] = useState ([])
-
-  // PROMESA PARA MANDAR A PRODUCT LO DE LA API //
+  // PROMESA PARA MANDAR A PRODUCTS LO DE LA API //
     useEffect(() => {
-      getProducts().then((product) => setProduct(product))
+      getProducts().then((products) => setProducts(products))
     }, [])
+
+    useEffect(() => {
+      console.log(products)
+    }, [products])
     
   return (
       <>
-        <ItemList product={product} /> 
+        {
+          categoryId ?
+          <ItemList products={productosFiltrados(categoryId)} />
+          :
+          <ItemList products={products} />
+        } 
       </>
   )
 }
@@ -42,7 +58,7 @@ const ItemListContainer = () => {
 //   });
 
 
-// const productosFiltrados = productos.filter((producto) => producto.categoria === categoria)
+
 
 // return (
 

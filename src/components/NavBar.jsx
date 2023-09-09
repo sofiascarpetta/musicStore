@@ -7,15 +7,19 @@ import {
   MenuItem,
   Flex, Box, Spacer,
 } from '@chakra-ui/react'
+import { Link, NavLink } from 'react-router-dom'
 
 const NavBar = () => {
   return (
     <>
     <div>
       <Flex>
-        <Box p='4' bg='#d1d1d1'>
-          <h3>MusicLegend</h3>
-        </Box>
+        <Link to={"/"}>
+          <Box p='4' bg='#d1d1d1'>
+            <h3>MusicLegend</h3>
+          </Box>
+        </Link>
+        
         <Spacer bg='#d1d1d1' />
         <Box p='4' bg='#d1d1d1'>
         <Menu>
@@ -23,9 +27,9 @@ const NavBar = () => {
             Discos
             </MenuButton>
             <MenuList >
-              <MenuItem color='#96305A'>Lana Del Rey</MenuItem>
-              <MenuItem color='#96305A'>Arctic Monkeys</MenuItem>
-              <MenuItem color='#96305A'>Radiohead</MenuItem>
+              <NavLink to={"/category/jewelery"}><MenuItem color='#96305A'>Lana Del Rey</MenuItem></NavLink>
+              <NavLink to={"/category/electronics"}><MenuItem color='#96305A'>Arctic Monkeys</MenuItem></NavLink>
+              <NavLink to={"/category/radiohead"}><MenuItem color='#96305A'>Radiohead</MenuItem></NavLink>
             </MenuList>
           </Menu>
         </Box>
