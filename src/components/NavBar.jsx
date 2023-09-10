@@ -23,13 +23,17 @@ const NavBar = () => {
         <Spacer bg='#d1d1d1' />
         <Box p='4' bg='#d1d1d1'>
         <Menu>
-            <MenuButton>
-            Discos
+            <MenuButton as={Box}>
+              Categorias
             </MenuButton>
             <MenuList >
-              <NavLink to={"/category/jewelery"}><MenuItem color='#96305A'>Lana Del Rey</MenuItem></NavLink>
-              <NavLink to={"/category/electronics"}><MenuItem color='#96305A'>Arctic Monkeys</MenuItem></NavLink>
-              <NavLink to={"/category/radiohead"}><MenuItem color='#96305A'>Radiohead</MenuItem></NavLink>
+              <MenuItem as={NavLink} to="/category/jewelery" activeClassName="active">
+                Jewelery
+              </MenuItem>
+      
+              <MenuItem as={NavLink} to={"/category/electronics"} activeClassName="active">
+                Electronics
+              </MenuItem>
             </MenuList>
           </Menu>
         </Box>
