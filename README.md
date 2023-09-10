@@ -1,1 +1,2 @@
 # musicStore
+![Alt Text](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExbDNmMGMwdnBzb2F0cG13eHJ6bDd1bWs3b2Z1cDhiOHg3am0xMXBjNCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/dwkhCATkejqoJ44tQU/giphy.gif)
