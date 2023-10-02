@@ -1,10 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Card, Image, Stack, Text, CardBody, Divider, ButtonGroup, CardFooter, Heading, Button, Center} from '@chakra-ui/react'
 import ItemCount from './ItemCount'
+import { useCartContext } from '../context/CartContext'
 
 const ItemDetail = ({product}) => {
+  const {title, id, price, imageId, stock, description} = product;
+  const [count, setCount] = useState(0);
+  const { addItem } = useCartContext();
 
-
+    const onAdd = (count) => {
+      if(count > 0){
+        setCount(count);
+        addItem({title, id, price, imageId, stock}, count);
+      };
+    };
   
   return (
     <div>
@@ -12,26 +21,23 @@ const ItemDetail = ({product}) => {
        <Card maxW='sm'>
   <CardBody>
     <Image
-      src= {product.image}
+      src={imageId}
       borderRadius='lg'
     />
     <Stack mt='6' spacing='3'>
-      <Heading size='md'>{product.title}</Heading>
+      <Heading size='md'>{title}</Heading>
       <Text>
-            {product.description}
+            {description}
       </Text>
       <Text color='blue.600' fontSize='2xl'>
-       $ {product.price}
+       $ {price}
       </Text>
     </Stack>
   </CardBody>
   <Divider />
   <CardFooter>
     <ButtonGroup spacing='2'>
-      <Button variant='solid' colorScheme='blue'>
-        Agregar al carrito
-      </Button>
-      <ItemCount/>
+      <ItemCount stock={stock} initial={1} onAdd={onAdd} />
     </ButtonGroup>
   </CardFooter>
 </Card>

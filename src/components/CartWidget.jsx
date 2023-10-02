@@ -1,9 +1,14 @@
 import { StarIcon } from '@chakra-ui/icons'
 import { Divider, Flex, Box} from '@chakra-ui/react'
+import { useCartContext } from '../context/CartContext'
+import { Link } from 'react-router-dom'
+
 import React from 'react'
 
 
 const CartWidget = () => {
+  const {cart, getQuantity} = useCartContext();
+
   return (
     <div>
       <Flex>
@@ -11,9 +16,12 @@ const CartWidget = () => {
           <StarIcon />
         </Box>
         <Divider />
-        <Box>
-          <p>3</p>
-        </Box>
+        <Link to={"/cart"}>
+          <Box>
+            <p>{cart.length ? getQuantity() : 0}</p>
+          </Box>
+        </Link>
+        
       </Flex>
      
 

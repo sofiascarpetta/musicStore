@@ -24,15 +24,15 @@ const NavBar = () => {
         <Box p='4' bg='#d1d1d1'>
         <Menu>
             <MenuButton as={Box}>
-              Categorias
+              Category
             </MenuButton>
             <MenuList >
-              <MenuItem as={NavLink} to="/category/jewelery" activeClassName="active">
-                Jewelery
+              <MenuItem as={NavLink} to="/category/music" activeClassName="active">
+                Music
               </MenuItem>
       
-              <MenuItem as={NavLink} to={"/category/electronics"} activeClassName="active">
-                Electronics
+              <MenuItem as={NavLink} to={"/category/merch"} activeClassName="active">
+                Merch
               </MenuItem>
             </MenuList>
           </Menu>

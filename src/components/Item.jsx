@@ -10,7 +10,7 @@ const Item = ({ producto}) => {
       <Card maxW='sm'>
         <CardBody>
           <Image
-            src= {producto.image}
+            src={producto.imageId}
             borderRadius='lg'
           />
           <Stack mt='6' spacing='3'>
@@ -24,7 +24,7 @@ const Item = ({ producto}) => {
           <ButtonGroup spacing='2'>
             <Link to={`/item/${producto.id}`}>
               <Button variant='solid' colorScheme='blue'>
-                Detalle
+                Details
               </Button>
             </Link>
           </ButtonGroup>

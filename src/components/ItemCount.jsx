@@ -1,20 +1,35 @@
 import React, { useState } from 'react'
+import { useCartContext } from "../context/CartContext";
 
-const ItemCount = () => {
+const ItemCount = ({cart = false, stock, initial, onAdd, productId}) => {
+  const {decrementAmount, incrementAmount} = useCartContext();
+  const [count, setCount] = useState(initial);
 
-  const [contador, setContador] = useState(0)
+  const decrement = () => {
+    if(count > 1){
+      setCount(count - 1);
+      if(cart){
+        decrementAmount(productId);
+      };
+    };
+  };
 
-  const restar = () => {
-    setContador(contador - 1)
-  }
+  const increment = () => {
+    if(count < stock){
+      setCount(count + 1);
+      if(cart){
+        incrementAmount(productId);
+      };
+    };
+  };
 
   return (
     <>
-    <p>{contador}</p>
-    <button onClick={() => setContador(contador + 1)}>+</button>
-    <button onClick={restar}>-</button>
+    <p>{count}</p>
+    <button onClick={() => increment()}>+</button>
+    <button onClick={() => decrement()}>-</button>
    
-     {/* <button onClick={() => setContador(0)}>Restart</button> / */}
+    <button onClick={() => onAdd(count)}>Add to cart</button>
     </>
   )
 }
