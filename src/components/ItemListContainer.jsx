@@ -15,10 +15,6 @@ const ItemListContainer = () => {
       setProducts();
     });
   }, [categoryId])
-
-  useEffect(() => {
-    console.log(products)
-  }, [products])
     
   return (
     <>

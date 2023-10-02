@@ -1,19 +1,54 @@
 import { useCartContext } from '../context/CartContext';
 import { Link } from 'react-router-dom';
+import {
+    Table,
+    Thead,
+    Tbody,
+    Tfoot,
+    Tr,
+    Th,
+    Td,
+    TableCaption,
+    TableContainer,
+    Box,
+} from '@chakra-ui/react'
+import DeleteButton from './DeleteButton';
 
 const Cart = () => {
-    const {cart, getQuantity, getTotal, removeItem, clearCart} = useCartContext();
+    const {cart, getQuantity, getTotal} = useCartContext();
 
     if(cart.length > 0) {
         return(
-            cart.map(p => {
-                return(
-                    <div key={p.id}>
-                        <p>{p.title}</p>
-                        <p>{p.price}</p>
-                    </div>
-                )
-            })
+            <Box>
+                <TableContainer>
+                    <Table variant='simple'>
+                        <TableCaption>Total: ${getTotal()} <DeleteButton/></TableCaption>
+                        <Thead>
+                            <Tr>
+                                <Th>Product</Th>
+                                <Th>Price</Th>
+                                <Th isNumeric>Quantity</Th>
+                                <Th>Actions</Th>
+                            </Tr>
+                        </Thead>
+
+                        <Tbody>
+                            {
+                                cart?.map(p => {
+                                    return(
+                                        <Tr key={p.id}>
+                                            <Td>{p.title}</Td>
+                                            <Td>$ {p.price}</Td>
+                                            <Td isNumeric>{p.count}</Td>
+                                            <Td><DeleteButton productId={p.id}/></Td>
+                                        </Tr>
+                                    )
+                                })
+                            }
+                        </Tbody>
+                    </Table>
+                </TableContainer>
+            </Box>
         )
     }
 };
