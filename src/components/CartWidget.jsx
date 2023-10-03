@@ -11,20 +11,18 @@ const CartWidget = () => {
 
   return (
     <div>
-      <Flex>
-        <Box>
-          <StarIcon />
-        </Box>
-        <Divider />
-        <Link to={"/cart"}>
+      <Link to={"/cart"}>
+        <Flex>
+          <Box>
+            <StarIcon />
+          </Box>
+          <Divider />
+          
           <Box>
             <p>{cart.length ? getQuantity() : 0}</p>
           </Box>
-        </Link>
-        
-      </Flex>
-     
-
+        </Flex>
+      </Link>
     </div>
   )
 }

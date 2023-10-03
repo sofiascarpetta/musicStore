@@ -1,9 +1,11 @@
 import { useState,createContext, useContext, useEffect } from 'react';
 import useLocalStorage from '../customHooks/useLocalStorage';
+import { useToast } from '@chakra-ui/react'
 
 const Context = createContext();
 
 export const CartContext = ({children}) => {
+    const toast = useToast();
     const [inLocalStorage, setLocalStorage] = useLocalStorage();
     const [cart, setCart] = useState(inLocalStorage('cart') || []);
 
@@ -30,6 +32,14 @@ export const CartContext = ({children}) => {
         } else { 
             setCart([...cart, newObj]); 
         };
+
+        toast({
+            title: 'Product added to cart',
+            description: `Great! ${productToAdd.title} is now added to your cart`,
+            status: 'success',
+            duration: 9000,
+            isClosable: true,
+        }) 
     };
 
     const removeItem = (id) => {

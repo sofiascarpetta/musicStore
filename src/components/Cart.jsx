@@ -13,6 +13,7 @@ import {
     Box,
 } from '@chakra-ui/react'
 import DeleteButton from './DeleteButton';
+import OrderButton from './OrderButton';
 
 const Cart = () => {
     const {cart, getQuantity, getTotal} = useCartContext();
@@ -22,7 +23,7 @@ const Cart = () => {
             <Box>
                 <TableContainer>
                     <Table variant='simple'>
-                        <TableCaption>Total: ${getTotal()} <DeleteButton/></TableCaption>
+                        <TableCaption>Total: ${getTotal()} <DeleteButton/> <OrderButton/></TableCaption>
                         <Thead>
                             <Tr>
                                 <Th>Product</Th>

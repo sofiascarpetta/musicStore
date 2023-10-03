@@ -54,7 +54,8 @@ export const getCategories = () => {
 
 export const addOrder = (objOrder) => {
   return new Promise((resolve) => {
-    addDoc(collection(db, 'orders'), objOrder).then(({id}) => {
+    const collectionRef = collection(db, "orders");
+    addDoc(collectionRef, objOrder).then(({id}) => {
       resolve(id);
     });
   });

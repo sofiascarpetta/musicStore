@@ -3,6 +3,8 @@ import {useEffect, useState} from 'react'
 import ItemList from './ItemList'
 import { useParams } from 'react-router-dom';
 import { getProducts } from '../services/firebase';
+import { Spinner, AbsoluteCenter, Box } from '@chakra-ui/react'
+
 
 const ItemListContainer = () => {
   const [products, setProducts] = useState ([]);
@@ -14,14 +16,28 @@ const ItemListContainer = () => {
     return (() => {
       setProducts();
     });
-  }, [categoryId])
+  }, [categoryId]);
+
+  if(!products) {
+    return(
+      <Box position='relative' h='100px'>
+        <AbsoluteCenter axis='both'>
+          <Spinner
+          thickness='4px'
+          speed='0.65s'
+          emptyColor='gray.200'
+          color='blue.500'
+          size='xl'
+          />
+        </AbsoluteCenter>
+      </Box>  
+    )
+  }
     
   return (
-    <>
-      {
-        <ItemList products={products} />
-      } 
-    </>
+    <Box m={4}>
+      <ItemList products={products} /> 
+    </Box>
   )
 }
 

@@ -27,11 +27,11 @@ const NavBar = () => {
               Category
             </MenuButton>
             <MenuList >
-              <MenuItem as={NavLink} to="/category/music" activeClassName="active">
+              <MenuItem as={NavLink} to="/category/music" activeclassname="active">
                 Music
               </MenuItem>
       
-              <MenuItem as={NavLink} to={"/category/merch"} activeClassName="active">
+              <MenuItem as={NavLink} to={"/category/merch"} activeclassname="active">
                 Merch
               </MenuItem>
             </MenuList>
