@@ -1,4 +1,4 @@
-# E-Commerce - MusicStore
+# E-Commerce - MusicLegend
 
 ![Demo](./public/musiclenged-demo.gif)
 
