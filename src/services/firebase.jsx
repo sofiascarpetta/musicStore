@@ -3,12 +3,12 @@ import { getFirestore } from "firebase/firestore";
 import { getDocs, collection, query, where, getDoc, doc, addDoc } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAMiWlshtVCxk2upf0qcdAGxbkmQOnbwjM",
-  authDomain: "musicapp-ecommerce.firebaseapp.com",
-  projectId: "musicapp-ecommerce",
-  storageBucket: "musicapp-ecommerce.appspot.com",
-  messagingSenderId: "322451655438",
-  appId: "1:322451655438:web:84e6f4886f8058d845e55f"
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId
 };
 
 const app = initializeApp(firebaseConfig);

@@ -11,7 +11,6 @@ import { useState } from 'react'
 import { writeBatch, doc, Timestamp } from 'firebase/firestore'
 import { addOrder, db, getProductById } from '../services/firebase'
 import { useCartContext } from '../context/CartContext'
-import { Field, Form, Formik } from 'formik'
 import OrderId from "./OrderId"
 import { useToast } from '@chakra-ui/react'
 
