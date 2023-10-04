@@ -38,7 +38,8 @@ Siga las instrucciones para ver el sitio de manera local.
 
 ## Información sobre desarrollo
 ### Rutas
-* **Main** *("/")*: Esta compuesto por un Navbar el cual renderiza el logo de la tienda, un menú para acceder a las distintas categorías de productos y un container con todos los productos existentes en la base de datos.
+* **Main** *("/")*: Esta compuesto por un Navbar el cual renderiza el logo de la tienda, un menú para acceder a las distintas categorías de productos y un boton para acceder al carrito de compras.
+Tambien renderiza todos los productos existentes en la base de datos.
 * **Category** *("/category/:categoryId")*: Renderiza productos filtrados en base a su categoría.
 * **Item** *("/detail/:productId")*: Renderiza un card con los detalles del producto seleccionado (nombre, descripción, imágen, stock). También tiene disponible un botón que es el encargado de agregar cierta cantidad del producto al carrito, una vez agregado el producto, se renderiza un botón de "Checkout" que redirecciona al usuario a su carrito de compras.
 * **Cart** *("/cart")*: Renderiza el carrito de compras con los productos agregados por el usuario.
