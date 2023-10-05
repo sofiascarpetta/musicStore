@@ -17,7 +17,7 @@ const ItemDetailContainer = () => {
     })
   }, [productId]);  
 
-  if(!product) {
+  if(Object.keys(product).length === 0) {
     return(
       <Box position='relative' h='100px'>
         <AbsoluteCenter axis='both'>
