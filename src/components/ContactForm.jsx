@@ -141,9 +141,11 @@ const ContactForm = () => {
                 <Input type='number' value={zip} placeholder='ZIP Code' onChange={({target}) => setZip(target.value)}/>
 
                 <Button
-                mt={4}
-                colorScheme='teal'
-                type='submit'
+                    mt={4}
+                    colorScheme='teal'
+                    type='submit'
+                    isLoading={processingOrder}
+                    loadingText='Submitting'
                 >
                     Submit
                 </Button>

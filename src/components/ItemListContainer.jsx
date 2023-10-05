@@ -14,11 +14,11 @@ const ItemListContainer = () => {
     getProducts(categoryId).then((products) => setProducts(products));
 
     return (() => {
-      setProducts();
+      setProducts([]);
     });
   }, [categoryId]);
 
-  if(!products) {
+  if(products && products.length < 0) {
     return(
       <Box position='relative' h='100px'>
         <AbsoluteCenter axis='both'>
@@ -34,7 +34,7 @@ const ItemListContainer = () => {
     )
   }
     
-  return (
+  return(
     <Box m={4}>
       <ItemList products={products} /> 
     </Box>
